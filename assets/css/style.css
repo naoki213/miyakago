@@ -108,26 +108,35 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
   height: auto;
 }
 
-.cta-link {
-  display: block;
-  background: #000;
+/* ---------- Fixed bottom CTA (detail itinerary) ---------- */
+.detail-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 95;
+  display: flex;
+  justify-content: center;
+  padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+  background: linear-gradient(180deg, rgba(10,37,64,0) 0%, rgba(10,37,64,0.85) 35%, rgba(10,37,64,0.95) 100%);
 }
 
-.cta-img {
-  transition: transform .2s, filter .2s;
+.detail-cta img {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  filter: drop-shadow(0 6px 16px rgba(0,0,0,0.35));
+  transition: transform .2s;
 }
 
-.cta-link:hover .cta-img {
-  transform: scale(1.015);
-  filter: brightness(1.06);
-}
+.detail-cta:hover img { transform: scale(1.02); }
 
 /* ---------- Footer ---------- */
 .site-footer {
   background: var(--navy-dark);
   color: rgba(255,255,255,0.75);
   text-align: center;
-  padding: 34px 20px;
+  padding: 34px 20px calc(150px + env(safe-area-inset-bottom));
   font-size: 0.85rem;
 }
 
@@ -138,7 +147,7 @@ h1, h2, h3 { font-family: var(--font-display); margin: 0; }
 .to-top {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  bottom: 96px;
   width: 46px;
   height: 46px;
   background: var(--orange);
